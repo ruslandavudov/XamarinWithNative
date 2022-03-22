@@ -1,0 +1,46 @@
+ext {
+    sourceCompatibility = kotlin_version
+    targetCompatibility = kotlin_version
+}
+buildscript {
+    ext.kotlin_version = "1.6.10"
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.10.1"
+        classpath 'com.google.gms:google-services:4.3.5'
+//        classpath "io.github.gradle-nexus.publish-plugin:1.0.0"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+//    dependencies {
+////        classpath "com.android.tools.build:gradle:7.0.4"
+////        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+//        classpath "com.android.tools.build:gradle:4.1.2"
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+//        classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.10.1"
+//        classpath 'com.google.gms:google-services:4.3.5'
+////        classpath "io.github.gradle-nexus.publish-plugin:1.0.0"
+//        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+//        // NOTE: Do not place your application dependencies here; they belong
+//        // in the individual module build.gradle files
+//    }
+}
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
