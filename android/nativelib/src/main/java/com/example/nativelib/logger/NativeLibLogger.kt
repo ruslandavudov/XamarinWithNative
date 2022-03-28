@@ -6,7 +6,7 @@ import com.android.volley.VolleyLog
 
 internal object NativeLibLogger {
 
-    private val TAG = "Mindbox"
+    private val TAG = "NativeLib"
     private val DEFAULT_LOG_LEVEL = Level.ERROR
 
     init {
