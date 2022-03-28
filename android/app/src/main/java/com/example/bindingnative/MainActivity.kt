@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initNativeLib() {
-        val configuration = com.example.nativelib.models.Configuration(domain = "https://api.shopstory.live", appId = "auchan-test")
+        val configuration = com.example.nativelib.models.Configuration(domain = "https://api.shopstory.live", appId = "shopstory-prod")
         nativeLib = NativeLib.init(configuration)
         nativeLib?.onSentData {
 

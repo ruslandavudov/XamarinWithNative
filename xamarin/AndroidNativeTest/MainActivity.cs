@@ -66,7 +66,7 @@ namespace AndroidNativeTest
             var configuration = new Com.Example.Nativelib.Models.Configuration
             {
                 Domain = "https://api.shopstory.live",
-                AppId = "auchan-test"
+                AppId = "shopstory-prod"
             };
 
 
