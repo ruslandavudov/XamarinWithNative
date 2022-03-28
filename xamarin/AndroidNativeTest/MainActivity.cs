@@ -50,42 +50,66 @@ namespace AndroidNativeTest
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            buttonsConfigure();
-            initNativeLib();
+            ButtonsConfigure();
+            InitNativeLib();
+            InitViewFields();
         }
 
-        private void buttonsConfigure()
+        private void ButtonsConfigure()
         {
             var button = FindViewById<Button>(Resource.Id.bOpen);
             button.Click += ButtonOnClick;
         }
 
-        private void initNativeLib()
+        private void InitNativeLib()
         {
-            var configuration = new Com.Example.Nativelib.Models.Configuration("", null, null, Java.Lang.Boolean.False, null);
+            var configuration = new Com.Example.Nativelib.Models.Configuration
+            {
+                Domain = "https://api.shopstory.live",
+                AppId = "auchan-test"
+            };
+
 
             var nativeLib = NativeLib.Init(configuration);
 
-            nativeLib.OnApply(new Function1Impl<OperationResponse>((response) => {
-                changeConfiguration(response.FieldBool, response.FieldString);
+            nativeLib.OnSentData(new Function1Impl<OperationResponse>((response) => {
+                var fProductName = FindViewById<TextView>(Resource.Id.productName);
+                var fFeedProductId = FindViewById<TextView>(Resource.Id.feedProductId);
+                var fFeedProductGroupId = FindViewById<TextView>(Resource.Id.feedProductGroupId);
+                var fVendorCode = FindViewById<TextView>(Resource.Id.vendorCode);
 
-                var switcher = FindViewById<Switch>(Resource.Id.fieldBool);
-                var textInputEditText = FindViewById<Google.Android.Material.TextField.TextInputEditText>(Resource.Id.fieldString);
+                fProductName.Text = response.Product.Name;
+                fFeedProductId.Text = response.Product.FeedProductId;
+                fFeedProductGroupId.Text = response.Product.FeedProductGroupId;
+                fVendorCode.Text = response.Product.VendorCode;
+            }));
+            nativeLib?.OnError(new Function1Impl<Java.Lang.String>((error) => {
+                var context = Application.Context;
+                var duration = ToastLength.Long;
 
-                switcher.Checked = (bool)response.FieldBool;
-                textInputEditText.Text = response.FieldString;
+                var toast = Toast.MakeText(context, error, duration);
+                toast.Show();
             }));
         }
 
-        private void changeConfiguration(Java.Lang.Boolean fBool, string fString)
+        private void InitViewFields()
+        {
+            var domain = FindViewById<Google.Android.Material.TextField.TextInputEditText>(Resource.Id.domain);
+            var appId = FindViewById<Google.Android.Material.TextField.TextInputEditText>(Resource.Id.appId);
+
+            domain.Text = NativeLib.Config.Domain;
+            appId.Text = NativeLib.Config.AppId;
+        }
+
+        private void ChangeConfiguration(string domain, string appId)
         {
             var configuration = NativeLib.Config;
             
 
             if (configuration != null)
             {
-                configuration.FieldString = fString;
-                configuration.FieldBool = fBool;
+                configuration.Domain = domain;
+                configuration.AppId = appId;
                 NativeLib.SetConfig(configuration);
             }
         }
@@ -94,11 +118,11 @@ namespace AndroidNativeTest
         {
             var nativeLib = NativeLib.Instance;
 
-            var switcher = FindViewById<Switch>(Resource.Id.fieldBool);
-            var textInputEditText = FindViewById<Google.Android.Material.TextField.TextInputEditText>(Resource.Id.fieldString);
+            var domain = FindViewById<Google.Android.Material.TextField.TextInputEditText>(Resource.Id.domain);
+            var appId = FindViewById<Google.Android.Material.TextField.TextInputEditText>(Resource.Id.appId);
 
 
-            changeConfiguration((Java.Lang.Boolean)switcher.Checked, textInputEditText.Text);
+            ChangeConfiguration(domain.Text, appId.Text);
 
             nativeLib.Start(this);
         }

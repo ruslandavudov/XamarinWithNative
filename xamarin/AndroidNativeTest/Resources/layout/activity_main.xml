@@ -5,34 +5,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-	<LinearLayout
+    <LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:gravity="center"
+		android:gravity="top"
 		android:orientation="vertical">
-		<Switch
-			android:id="@+id/fieldBool"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginVertical="10dp"
-        />
-		<com.google.android.material.textfield.TextInputEditText
-			android:id="@+id/fieldString"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginVertical="10dp"
-			android:textSize="14sp"
-        />
 
-		<Button
-			android:id="@+id/bOpen"
-			android:layout_width="wrap_content"
+        
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-			android:text="OPEN NATIVE SCREEN"
-			/>
-	</LinearLayout>
-    
+            android:gravity="top"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ProductName"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="feed product Id"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/feedProductId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="feed product group Id"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/feedProductGroupId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="vendor code"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/vendorCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
 
-    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="domain:"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:layout_margin="5dp"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/domain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="appId:"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:layout_margin="5dp"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/appId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPEN NATIVE SCREEN"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

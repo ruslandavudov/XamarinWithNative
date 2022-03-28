@@ -2,18 +2,24 @@ package com.example.nativelib
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import com.android.volley.Request
 import com.example.nativelib.gui.NativeActivity
 import com.example.nativelib.models.Configuration
+import com.example.nativelib.models.api.streaming.Product
+import com.example.nativelib.models.api.streaming.StreamResponse
+import com.example.nativelib.models.api.streaming.StreamsResponse
+import com.example.nativelib.providers.StreamNetworkProvider
 import com.google.gson.annotations.SerializedName
 
 
 class OperationResponse(
-    @SerializedName("fieldString") var fieldString: String? = null,
-    @SerializedName("fieldBool") var fieldBool: Boolean? = null,
+    @SerializedName("product") var product: Product? = null,
 )
 
 class NativeLib private constructor() {
     private var onSuccess: ((OperationResponse) -> Unit)? = null
+    private var onError: ((String) -> Unit)? = null
 
     companion object {
         private var instance: NativeLib? = null
@@ -49,25 +55,68 @@ class NativeLib private constructor() {
     }
 
     internal fun setResponse(response: OperationResponse) {
-        configuration = configuration?.apply {
-            fieldBool = response.fieldBool
-            fieldString = response.fieldString
-        }
-
         this.onSuccess?.invoke(response)
     }
 
     @JvmName("start")
     fun start(context: Context) {
-        val intent = Intent(context, NativeActivity::class.java)
-        intent.putExtra("fieldString", configuration?.fieldString ?: "null")
-        intent.putExtra("fieldBool", configuration?.fieldBool ?: false)
-
-        context.startActivity(intent)
+        getStreams(context)
     }
 
-    @JvmName("onApply")
-    fun onApply(onSuccess: (OperationResponse) -> Unit) {
+    // example endpoint: "/v2/mini-player/stream?application=shopstory-prod&productCode=jf114440"
+    @JvmName("getStream")
+    fun getStream(context: Context, productCode: String) {
+        configuration?.let { cfg ->
+            StreamNetworkProvider.syncRequest<StreamResponse>(
+                context = context,
+                url = "${cfg.domain}/v2/mini-player/stream?application=${cfg.appId}&productCode=${productCode}",
+                requestType = Request.Method.GET,
+                onSuccess = {
+                    val body = it.body
+                    println(body?.playbackLink)
+                },
+                onError = {
+                    this.onError?.invoke(it.toString())
+                    println(it)
+                }
+            )
+        }
+
+    }
+
+    // example endpoint: "/v3/streams?applicationId=shopstory-prod"
+    @JvmName("getStreams")
+    fun getStreams(context: Context) {
+        configuration?.let { cfg ->
+            StreamNetworkProvider.syncRequest<StreamsResponse>(
+                context = context,
+                url = "${cfg.domain}/v3/streams?applicationId=${cfg.appId}",
+                requestType = Request.Method.GET,
+                onSuccess = {
+                    val intent = Intent(context, NativeActivity::class.java)
+                    val bundle = Bundle()
+
+                    bundle.putParcelable("streamsResponse", it)
+                    intent.putExtra("Bundle", bundle)
+
+                    context.startActivity(intent)
+                },
+                onError = {
+                    this.onError?.invoke(it.toString())
+                    println(it)
+                }
+            )
+        }
+
+    }
+
+    @JvmName("onSentData")
+    fun onSentData(onSuccess: (OperationResponse) -> Unit) {
         this.onSuccess = onSuccess
+    }
+
+    @JvmName("onError")
+    fun onError(onError: (String) -> Unit) {
+        this.onError = onError
     }
 }

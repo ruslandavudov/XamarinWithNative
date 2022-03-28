@@ -6,4 +6,147 @@
   This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='ErrorBody.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='ErrorBody.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='StreamBody.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='StreamBody.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Avatar.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Avatar.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Banner.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Banner.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Categories.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Categories.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='ErrorResponse.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='ErrorResponse.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='PreviewImages.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='PreviewImages.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Products.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Products.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='DataStreams.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='DataStreams.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='StreamResponse.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='StreamResponse.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Streamers.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Streamers.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Profile.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Profile.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='StreamsResponse.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='StreamsResponse.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='StreamsBody.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='StreamsBody.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Product.CREATOR']/method[@name='createFromParcel']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='Product.CREATOR']/method[@name='newArray']"
+    name="managedReturn">Java.Lang.Object[]
+  </attr>
+
+  
+
+  <attr
+    path="/api/package[@name='com.example.nativelib.models.api.streaming']/class[@name='ErrorResponse']"
+    name="managedReturn">Java.Lang.Object
+  </attr>
+
 </metadata>

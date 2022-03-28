@@ -2,10 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nativelib">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
     <application>
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
+        <activity
+            android:name=".gui.WebViewActivity"
+            android:exported="false" />
         <activity
             android:name=".gui.NativeActivity"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>
